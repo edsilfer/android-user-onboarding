@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/clr_user_onboard_page_1"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/bk_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/clr_user_onboard_page_2" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingBottom="48dip"/>
+
+    <LinearLayout
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/begin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dip"
+        android:orientation="horizontal" />
+
+    <Button
+        android:id="@+id/begin"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dip"
+        android:alpha="0"
+        android:enabled="true"
+        android:text="@string/str_act_user_onboarding_button_begin"
+        android:textColor="#ffffff" />
+</RelativeLayout>
