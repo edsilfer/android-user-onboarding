@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android-extensions'
 // *************************************************************************************************
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion "25.0.1"
     // ---------------------------------------------------------------------------------------------
     defaultConfig {
         applicationId "br.com.edsilfer.android"
@@ -30,18 +30,19 @@ android {
 // *************************************************************************************************
 dependencies {
     // TEST DEPENDENCIES
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
     compile "com.android.support:appcompat-v7:$support_version"
-    testCompile 'junit:junit:4.12'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     // KOTLIN DEPENDENCIES
-    compile "com.android.support:appcompat-v7:$support_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
+    compile project(':user-onboarding')
 }
 // *************************************************************************************************
 buildscript {

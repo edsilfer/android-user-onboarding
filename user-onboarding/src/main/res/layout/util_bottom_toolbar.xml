@@ -1,0 +1,46 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:layout_gravity="bottom"
+    android:paddingEnd="@dimen/dim_bottom_toolbar_margin"
+    android:paddingLeft="@dimen/dim_bottom_toolbar_margin"
+    android:paddingRight="@dimen/dim_bottom_toolbar_margin"
+    android:paddingStart="@dimen/dim_bottom_toolbar_margin">
+
+    <Button
+        android:id="@+id/skip"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|center"
+        android:text="@string/str_token_skip"
+        android:textColor="@android:color/white" />
+
+    <LinearLayout
+        android:id="@+id/indicator_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" />
+
+    <Button
+        android:id="@+id/finish"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center"
+        android:text="@string/str_token_finish"
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/next"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center"
+        android:contentDescription="@string/str_token_description_next"
+        android:padding="@dimen/dim_bottom_toolbar_margin"
+        android:src="@drawable/ic_chevron_right"
+        android:tint="@android:color/white" />
+</FrameLayout>

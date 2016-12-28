@@ -1,6 +1,6 @@
 buildscript {
     // VARIABLE CONFIGURATIONS
-    ext.kotlin_version = '1.0.5'
+    ext.kotlin_version = '1.0.6'
     ext.anko_version = '0.9'
     ext.support_version = '25.0.1'
     ext.dagger_version = '2.7'
@@ -12,7 +12,7 @@ buildscript {
 
     // GLOBAL DEPENDENCIES
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.android.tools.build:gradle:2.2.3'
         classpath 'com.google.gms:google-services:3.0.0'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"

@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">user-onboarding</string>
+
+    <!-- SAMPLES =============================================================================== -->
+    <string name="str_sample_header">Page %s</string>
+    <string name="str_sample_subheader">Add a long description here about your app\'s important feature.</string>
+
+    <!-- TOKENS ================================================================================ -->
+    <string name="str_token_finish">Finish</string>
+    <string name="str_token_skip">Skip</string>
+
+    <!-- DESCRIPTIONS ========================================================================== -->
+    <string name="str_page_item_image_description">User OnBoarding Page Item description</string>
+    <string name="str_token_description_finish">Finish User Onboarding</string>
+    <string name="str_token_description_next">Next page of User Onboarding</string>
 </resources>
