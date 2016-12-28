@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- CUSTOM APP COLORS -->
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- USER ONBOARDING COLORS -->
+    <color name="clr_custom_background_page_01">#a45462</color>
+    <color name="clr_custom_background_page_02">#b7edff</color>
+    <color name="clr_custom_background_page_03">#dac6ad</color>
 </resources>

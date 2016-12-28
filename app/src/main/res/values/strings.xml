@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Android User Onboarding</string>
+
+    <!-- USER ONBOARDING DISCLAIMERS -->
+    <string name="str_header_01">Page 01</string>
+    <string name="str_subheader1_01">Subheader of Page 01</string>
+    <string name="str_subheader2_01">This is the subheader 2 of Page 01</string>
+
+    <string name="str_header_02">Page 02</string>
+    <string name="str_subheader1_02">Subheader of Page 02</string>
+    <string name="str_subheader2_02">This is the subheader 2 of Page 02</string>
+
+    <string name="str_header_03">Page 03</string>
+    <string name="str_subheader1_03">Subheader of Page 01</string>
+    <string name="str_subheader2_03">This is the subheader 2 of Page 03</string>
 </resources>

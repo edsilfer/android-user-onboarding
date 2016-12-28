@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import br.com.edsilfer.android.user_onboarding.R
+import br.com.edsilfer.android.user_onboarding.model.Page
 
 /**
  * Created by efernandes on 28/12/16.
@@ -16,13 +17,12 @@ import br.com.edsilfer.android.user_onboarding.R
 class FragmentPlaceHolder : Fragment() {
 
     companion object {
-        private val ARG_SECTION_NUMBER = "section_number"
-        private val ARG_IMAGE_RESOURCE_ID = "image_res_id"
+        private val ARG_PAGE = "ARG_PAGE"
 
-        fun newInstance(position: Int): FragmentPlaceHolder {
+        fun newInstance(page: Page): FragmentPlaceHolder {
             val fragment = FragmentPlaceHolder()
             val args = Bundle()
-            args.putInt(ARG_SECTION_NUMBER, position)
+            args.putSerializable(ARG_PAGE, page)
             fragment.arguments = args
             return fragment
         }
@@ -30,12 +30,18 @@ class FragmentPlaceHolder : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater!!.inflate(R.layout.fragment_pager_item, container, false)
+        val page = arguments.getSerializable(ARG_PAGE) as Page
 
-        val label = rootView.findViewById(R.id.label) as TextView
-        label.text = "?????"
-
+        val header = rootView.findViewById(R.id.header) as TextView
         val image = rootView.findViewById(R.id.image) as ImageView
-        image.setImageResource(R.drawable.img_sample)
+        val subHeader1 = rootView.findViewById(R.id.subheader1) as TextView
+        val subHeader2 = rootView.findViewById(R.id.subheader2) as TextView
+
+        header.text = context.getString(page.header)
+        subHeader1.text = context.getString(page.subHeader1)
+        subHeader2.text = context.getString(page.subHeader2)
+
+        image.setImageResource(page.image)
 
         return rootView
     }

@@ -4,6 +4,16 @@
     android:layout_height="match_parent"
     tools:context="br.com.edsilfer.android.user_onboarding.presenter.ActivityUserOnBoarding">
 
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dim_page_item_horizontal_margin"
+        android:fontFamily="sans-serif-black"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="32sp" />
+
     <ImageView
         android:id="@+id/image"
         android:layout_width="wrap_content"
@@ -31,22 +41,21 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/label"
-            style="@style/TextAppearance.AppCompat.Headline"
+            android:id="@+id/subheader1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:text="@string/str_sample_header"
-            android:textColor="@android:color/white" />
+            android:fontFamily="sans-serif-black"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
 
         <TextView
-            style="@style/TextAppearance.AppCompat.Body1"
+            android:id="@+id/subheader2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dip"
             android:fontFamily="sans-serif-thin"
             android:gravity="center"
-            android:text="@string/str_sample_subheader"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
     </LinearLayout>
 </FrameLayout>
