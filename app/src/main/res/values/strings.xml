@@ -13,4 +13,8 @@
     <string name="str_header_03">Page 03</string>
     <string name="str_subheader1_03">Subheader of Page 01</string>
     <string name="str_subheader2_03">This is the subheader 2 of Page 03</string>
+
+    <string name="str_header_04">Page 04</string>
+    <string name="str_subheader1_04">Subheader of Page 04</string>
+    <string name="str_subheader2_04">This is the subheader 2 of Page 04</string>
 </resources>

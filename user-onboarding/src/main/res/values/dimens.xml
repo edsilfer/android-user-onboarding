@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="dim_page_item_horizontal_margin">25dip</dimen>
-    <dimen name="dim_page_item_vertical_margin">15dip</dimen>
+    <dimen name="dim_page_item_vertical_margin">25dip</dimen>
 
     <dimen name="dim_bottom_toolbar_margin">10dip</dimen>
     <dimen name="dim_bottom_toolbar_indicator_margin">10dip</dimen>

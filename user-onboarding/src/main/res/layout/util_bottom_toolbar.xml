@@ -40,7 +40,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|center"
         android:contentDescription="@string/str_token_description_next"
-        android:padding="@dimen/dim_bottom_toolbar_margin"
-        android:src="@drawable/ic_chevron_right"
-        android:tint="@android:color/white" />
+        android:padding="@dimen/dim_bottom_toolbar_margin" />
 </FrameLayout>

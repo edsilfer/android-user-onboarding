@@ -1,11 +1,10 @@
-package br.com.edsilfer.android.user_onboarding.model
+package br.com.edsilfer.android.user_onboarding.presenter.view
 
 import android.annotation.TargetApi
 import android.content.Context
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
-import android.os.Build
 import android.support.v4.content.ContextCompat
 import android.support.v4.graphics.drawable.DrawableCompat
 import android.util.AttributeSet
@@ -13,18 +12,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import br.com.edsilfer.android.user_onboarding.R
-import android.widget.RelativeLayout
-
+import br.com.edsilfer.kotlin_support.extensions.paintDrawable
+import org.jetbrains.anko.textColor
 
 
 /**
  * Created by efernandes on 28/12/16.
  */
 
-class OnBoardingBottomPanel : RelativeLayout {
+class OnBoardingBottomPanel : RelativeLayout, OnBoardingControlPanel {
 
     companion object {
-        val ARG_INDICATOR_MARGIN = 6
+        val ARG_INDICATOR_MARGIN = 10
     }
 
     private var mSkip: Button? = null
@@ -34,9 +33,18 @@ class OnBoardingBottomPanel : RelativeLayout {
     private var mIndicators = arrayListOf<ImageView>()
 
     private var mSize: Int = 0
+    private var mResColor: Int = 0
 
-    constructor(context: Context, size: Int) : super(context) {
+    // CONSTRUCTORS ================================================================================
+    constructor(context: Context, size: Int, colorResource: Int = -1, colorString: String = "") : super(context) {
         mSize = size
+        if (colorString.isEmpty() && colorResource != -1) {
+            mResColor = context.resources.getColor(colorResource)
+        } else if (colorResource == -1 && !colorString.isEmpty()) {
+            mResColor = Color.parseColor(colorString)
+        } else {
+            mResColor = android.R.color.white
+        }
         init()
     }
 
@@ -58,29 +66,19 @@ class OnBoardingBottomPanel : RelativeLayout {
 
         mFinish = rootView.findViewById(R.id.finish) as Button
         mNext = rootView.findViewById(R.id.next) as ImageButton
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP) {
-            mNext!!.setImageDrawable(
-                    paintDrawable(ContextCompat.getDrawable(context, R.drawable.ic_chevron_right), Color.WHITE)
-            )
-        }
         mSkip = rootView.findViewById(R.id.skip) as Button
 
-        val params = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
-        params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
-        params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
+        mFinish!!.textColor = mResColor
+        mSkip!!.textColor = mResColor
+        mNext!!.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_chevron_right).paintDrawable(mResColor))
+
+        val params = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
+        params.addRule(ALIGN_PARENT_BOTTOM)
+        params.addRule(ALIGN_PARENT_RIGHT)
 
         rootView.layoutParams = params
 
-        createIndicators(3)
-    }
-
-    // TODO: MOVE THIS METHOD TO KOTLIN-ANDROID
-    private fun paintDrawable(drawable: Drawable, color: Int): Drawable {
-        var drawableClone = drawable
-        drawableClone = DrawableCompat.wrap(drawableClone)
-        DrawableCompat.setTint(drawableClone, color)
-        DrawableCompat.setTintMode(drawableClone, PorterDuff.Mode.SRC_IN)
-        return drawableClone
+        createIndicators(mSize)
     }
 
     private fun createIndicators(size: Int) {
@@ -101,17 +99,22 @@ class OnBoardingBottomPanel : RelativeLayout {
     }
 
     // PUBLIC INTERFACE ============================================================================
-    fun updateBar(position: Int) {
+    override fun updateBar(position: Int) {
         for ((count, i) in mIndicators.withIndex()) {
-            i.setBackgroundResource(
-                    if (count == position) R.drawable.rsc_indicator_activated else R.drawable.rsc_indicator_deactivated
+            i.setImageDrawable(
+                    if (count == position) {
+                        ContextCompat.getDrawable(context, R.drawable.rsc_indicator_activated).paintDrawable(mResColor)
+                    } else {
+                        ContextCompat.getDrawable(context, R.drawable.rsc_indicator_deactivated).paintDrawable(mResColor)
+                    }
             )
         }
+
         mNext!!.visibility = if (isLastPage(position)) View.GONE else View.VISIBLE
         mFinish!!.visibility = if (isLastPage(position)) View.VISIBLE else View.GONE
     }
 
-    fun setListener(listener: PanelEventListener) {
+    override fun setListener(listener: PanelEventListener) {
         mListener = listener
 
         mFinish!!.setOnClickListener {
@@ -127,11 +130,18 @@ class OnBoardingBottomPanel : RelativeLayout {
         }
     }
 
-
-    // LISTENER
     interface PanelEventListener {
         fun onFinishedClicked()
         fun onSkipClicked()
         fun onNextClicked()
     }
+}
+
+/**
+ * CONTRACT
+ */
+interface OnBoardingControlPanel {
+    fun updateBar(position: Int)
+
+    fun setListener(listener: OnBoardingBottomPanel.PanelEventListener)
 }

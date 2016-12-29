@@ -10,9 +10,10 @@
         android:paddingBottom="?attr/actionBarSize" />
 
     <View
+        android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="?attr/actionBarSize"
         android:alpha="0.12"
         android:background="@android:color/white" />

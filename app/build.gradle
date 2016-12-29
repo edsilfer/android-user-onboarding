@@ -14,6 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled  true
     }
     // ---------------------------------------------------------------------------------------------
     buildTypes {
@@ -31,9 +32,23 @@ android {
 dependencies {
     // TEST DEPENDENCIES
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2') {
         exclude group: 'com.android.support', module: 'support-annotations'
-    })
+        exclude module: 'testing-support-lib'
+        exclude module: 'support-v4'
+        exclude module: 'support-v7'
+        exclude module: 'support-annotations'
+        exclude group: 'javax.inject'
+        exclude group: 'com.android.support', module: 'design'
+    }
+    androidTestCompile ('com.android.support.test.espresso:espresso-contrib:2.2.2') {
+        exclude module: 'support-annotations'
+        exclude module: 'support-v4'
+        exclude module: 'support-v13'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'design'
+    }
 
     compile "com.android.support:appcompat-v7:$support_version"
 

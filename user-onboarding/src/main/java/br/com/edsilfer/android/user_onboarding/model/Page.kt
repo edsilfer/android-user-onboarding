@@ -1,6 +1,6 @@
 package br.com.edsilfer.android.user_onboarding.model
 
-import com.google.gson.Gson
+import br.com.edsilfer.kotlin_support.model.xml.Text
 import java.io.Serializable
 
 /**
@@ -10,13 +10,12 @@ import java.io.Serializable
 data class Page(
         var background: Int,
         var header: Int,
+        var headerStyle: Text,
         var image: Int,
         var subHeader1: Int,
-        var subHeader2: Int
+        var subHeader1Style: Text,
+        var subHeader2: Int,
+        var subHeader2Style: Text
 ) : Serializable {
-
-    override fun toString(): String {
-        return Gson().toJson(this)
-    }
 
 }

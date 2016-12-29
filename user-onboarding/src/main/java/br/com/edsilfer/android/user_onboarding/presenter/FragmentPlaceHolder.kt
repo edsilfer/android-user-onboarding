@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import br.com.edsilfer.android.user_onboarding.R
 import br.com.edsilfer.android.user_onboarding.model.Page
+import br.com.edsilfer.kotlin_support.extensions.setStyle
 
 /**
  * Created by efernandes on 28/12/16.
@@ -36,6 +37,10 @@ class FragmentPlaceHolder : Fragment() {
         val image = rootView.findViewById(R.id.image) as ImageView
         val subHeader1 = rootView.findViewById(R.id.subheader1) as TextView
         val subHeader2 = rootView.findViewById(R.id.subheader2) as TextView
+
+        header.setStyle(page.headerStyle)
+        subHeader1.setStyle(page.subHeader1Style)
+        subHeader2.setStyle(page.subHeader2Style)
 
         header.text = context.getString(page.header)
         subHeader1.text = context.getString(page.subHeader1)

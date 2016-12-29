@@ -6,11 +6,11 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 group = 'br.com.edsilfer.android'
-version = '0.0.1'
+version = '1.0.0'
 // *************************************************************************************************
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion "25.0.1"
     // ---------------------------------------------------------------------------------------------
     defaultConfig {
         minSdkVersion 16
@@ -95,33 +95,14 @@ dependencies {
     compile "com.android.support:recyclerview-v7:$support_version"
     compile "com.android.support:cardview-v7:$support_version"
     compile "com.android.support:design:$support_version"
-    compile "com.google.guava:guava:18.0"
-
-    // THIRD PARTY
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.mikhaellopez:circularimageview:3.0.2'
-    compile 'com.jakewharton:kotterknife:0.1.0-SNAPSHOT'
 
     // OWN THIRD LIBRARIES
-    compile 'br.com.edsilfer:kotlin-support:1.0.21'
-    compile 'br.com.instachat:emoji-library:1.0.7'
-    compile 'br.com.edsilfer:list-manager:1.0.1'
+    compile 'br.com.edsilfer:kotlin-support:1.0.25'
 
     // KOTLIN
     compile "com.android.support:appcompat-v7:$support_version"
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-
-    // DAGGER 2 DEPENDENCIES
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
-    compile "com.google.dagger:dagger:$dagger_version"
-    provided 'javax.annotation:jsr250-api:1.0'
-
-    // ANKO
-    compile "org.jetbrains.anko:anko-common:$anko_version"
-    compile "org.jetbrains.anko:anko-sdk15:$anko_version"
-    compile "org.jetbrains.anko:anko-support-v4:$anko_version"
-    compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
 }
 
 // *************************************************************************************************

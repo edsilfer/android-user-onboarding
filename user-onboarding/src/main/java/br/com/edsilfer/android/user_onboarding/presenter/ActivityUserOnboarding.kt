@@ -4,13 +4,15 @@ import android.animation.ArgbEvaluator
 import android.os.Bundle
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
+import android.view.ViewGroup
 import android.widget.RelativeLayout
 import br.com.edsilfer.android.user_onboarding.R
 import br.com.edsilfer.android.user_onboarding.controller.SectionsPagerAdapter
-import br.com.edsilfer.android.user_onboarding.model.OnBoardingBottomPanel
-import br.com.edsilfer.android.user_onboarding.model.Page
+import br.com.edsilfer.android.user_onboarding.model.OnBoardingTheme
+import br.com.edsilfer.android.user_onboarding.presenter.view.OnBoardingBottomPanel
+import br.com.edsilfer.android.user_onboarding.presenter.view.OnBoardingControlPanel
+import br.com.edsilfer.kotlin_support.extensions.paintStatusBar
 import br.com.edsilfer.kotlin_support.extensions.putProperty
-import java.util.*
 
 
 /**
@@ -20,13 +22,13 @@ class ActivityUserOnBoarding : AppCompatActivity(), OnBoardingBottomPanel.PanelE
 
     companion object {
         val PREF_USER_FIRST_TIME = "PREF_USER_FIRST_TIME"
-        val ARG_ONBOARDING_PAGES = "ARG_ONBOARDING_PAGES"
+        val ARG_ONBOARDING_THEME = "ARG_ONBOARDING_THEME"
     }
 
     private var mCurrentPage = 0
-    private var mPages = arrayListOf<Page>()
+    private var mTheme: OnBoardingTheme? = null
     private var mViewPager: ViewPager? = null
-    private var mPanelControl: OnBoardingBottomPanel? = null
+    private var mPanelControl: OnBoardingControlPanel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,23 +39,24 @@ class ActivityUserOnBoarding : AppCompatActivity(), OnBoardingBottomPanel.PanelE
     private fun instantiateMembers() {
         retrievePages()
         mViewPager = findViewById(R.id.pager) as ViewPager
-        mPanelControl = OnBoardingBottomPanel(this, mPages.size)
+        mPanelControl = OnBoardingBottomPanel(this, mTheme!!.pages.size, colorResource = mTheme!!.panelColor)
         mPanelControl!!.setListener(this)
-        (findViewById(R.id.container) as RelativeLayout).addView(mPanelControl)
+        (findViewById(R.id.divider)).setBackgroundColor(resources.getColor(mTheme!!.panelColor))
+        (findViewById(R.id.container) as RelativeLayout).addView(mPanelControl as ViewGroup)
         initViewPager()
     }
 
     private fun retrievePages() {
         try {
-            mPages = intent.extras.getSerializable(ARG_ONBOARDING_PAGES) as ArrayList<Page>
+            mTheme = intent.extras.getSerializable(ARG_ONBOARDING_THEME) as OnBoardingTheme
         } catch (e: Exception) {
-            throw IllegalArgumentException("ActivityUserOnboard requires an ArrayList<Page> to work")
+            throw IllegalArgumentException("ActivityUserOnboard requires a OnBoardingTheme object. Error Message: ${e.message}")
         }
     }
 
     private fun initViewPager() {
         val evaluator = ArgbEvaluator()
-        mViewPager!!.adapter = SectionsPagerAdapter(supportFragmentManager, mPages)
+        mViewPager!!.adapter = SectionsPagerAdapter(supportFragmentManager, mTheme!!.pages)
         mViewPager!!.currentItem = mCurrentPage
 
         mViewPager!!.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -61,16 +64,22 @@ class ActivityUserOnBoarding : AppCompatActivity(), OnBoardingBottomPanel.PanelE
                 mViewPager!!.setBackgroundColor(
                         evaluator.evaluate(
                                 positionOffset,
-                                resources.getColor(mPages[position].background),
-                                resources.getColor(mPages[if (isLastPage(position)) position else position + 1].background)
+                                resources.getColor(mTheme!!.pages[position].background),
+                                resources.getColor(mTheme!!.pages[if (isLastPage(position)) position else position + 1].background)
                         ) as Int
                 )
+
+                this@ActivityUserOnBoarding.paintStatusBar(evaluator.evaluate(
+                        positionOffset,
+                        resources.getColor(mTheme!!.pages[position].background),
+                        resources.getColor(mTheme!!.pages[if (isLastPage(position)) position else position + 1].background)
+                ) as Int, false)
             }
 
             override fun onPageSelected(position: Int) {
                 mCurrentPage = position
                 mPanelControl!!.updateBar(mCurrentPage)
-                mViewPager!!.setBackgroundColor(mPages[position].background)
+                mViewPager!!.setBackgroundColor(mTheme!!.pages[position].background)
             }
 
             override fun onPageScrollStateChanged(state: Int) {
@@ -80,10 +89,10 @@ class ActivityUserOnBoarding : AppCompatActivity(), OnBoardingBottomPanel.PanelE
     }
 
     private fun isLastPage(position: Int): Boolean {
-        return position == mPages.size - 1
+        return position == mTheme!!.pages.size - 1
     }
 
-    // PUBLIC INTERFACE
+    // PUBLIC INTERFACE ============================================================================
     override fun onFinishedClicked() {
         finish()
         putProperty(PREF_USER_FIRST_TIME, false)
