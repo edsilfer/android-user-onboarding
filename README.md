@@ -10,7 +10,8 @@
    * [Step 01](#step1) 
    * [Step 02](#step2) 
    * [Step 03](#step3) 
-3. [License](#license) 
+3. [Special Thanks](#special-thanks) 
+4. [License](#license) 
 
 <a name="introduction" />
 ## Introduction
@@ -83,6 +84,10 @@ val intent = Intent(this, ActivityUserOnBoarding::class.java)
 intent.putExtra(ActivityUserOnBoarding.ARG_ONBOARDING_THEME, theme)
 startActivity(intent)
 ```
+
+<a name="special-thanks" />
+## Special Thanks
+This library was built based on [this](http://blog.grafixartist.com/onboarding-android-viewpager-google-way/) nice tutorial posted by Suleiman on Grafix Artist.
 
 <a name="license" />
 ## License
