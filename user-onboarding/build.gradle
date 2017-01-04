@@ -6,7 +6,7 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 group = 'br.com.edsilfer.android'
-version = '1.0.0'
+version = '1.0.1'
 // *************************************************************************************************
 android {
     compileSdkVersion 25
@@ -97,7 +97,7 @@ dependencies {
     compile "com.android.support:design:$support_version"
 
     // OWN THIRD LIBRARIES
-    compile 'br.com.edsilfer:kotlin-support:1.0.25'
+    compile 'br.com.edsilfer:kotlin-support:1.0.31'
 
     // KOTLIN
     compile "com.android.support:appcompat-v7:$support_version"

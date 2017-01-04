@@ -8,7 +8,7 @@ android {
     buildToolsVersion "25.0.1"
     // ---------------------------------------------------------------------------------------------
     defaultConfig {
-        applicationId "br.com.edsilfer.android"
+        applicationId "br.com.edsilfer.android.user_onboarding"
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 1

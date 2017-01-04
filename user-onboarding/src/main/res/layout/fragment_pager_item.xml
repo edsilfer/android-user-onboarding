@@ -2,13 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     tools:context="br.com.edsilfer.android.user_onboarding.presenter.ActivityUserOnBoarding">
 
     <TextView
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dim_page_item_horizontal_margin"
+        android:layout_marginEnd="@dimen/dim_page_item_horizontal_margin"
+        android:layout_marginLeft="@dimen/dim_page_item_horizontal_margin"
+        android:layout_marginRight="@dimen/dim_page_item_horizontal_margin"
+        android:layout_marginStart="@dimen/dim_page_item_horizontal_margin"
+        android:layout_marginTop="5dip"
         android:textAlignment="center" />
 
     <ImageView
@@ -16,10 +21,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginEnd="@dimen/dim_page_item_horizontal_margin"
-        android:layout_marginLeft="@dimen/dim_page_item_horizontal_margin"
-        android:layout_marginRight="@dimen/dim_page_item_horizontal_margin"
-        android:layout_marginStart="@dimen/dim_page_item_horizontal_margin"
+        android:layout_marginEnd="@dimen/dim_page_item_image_horizontal_margin"
+        android:layout_marginLeft="@dimen/dim_page_item_image_horizontal_margin"
+        android:layout_marginRight="@dimen/dim_page_item_image_horizontal_margin"
+        android:layout_marginStart="@dimen/dim_page_item_image_horizontal_margin"
+        android:layout_marginTop="-30dip"
         android:adjustViewBounds="true"
         android:contentDescription="@string/str_page_item_image_description"
         android:scaleType="fitCenter" />
@@ -28,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="@dimen/dim_page_item_vertical_margin"
+        android:layout_marginBottom="50dip"
         android:layout_marginEnd="@dimen/dim_page_item_horizontal_margin"
         android:layout_marginLeft="@dimen/dim_page_item_horizontal_margin"
         android:layout_marginRight="@dimen/dim_page_item_horizontal_margin"
@@ -45,7 +51,7 @@
             android:id="@+id/subheader2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dip"
+            android:layout_marginTop="20dip"
             android:gravity="center" />
     </LinearLayout>
 </FrameLayout>
