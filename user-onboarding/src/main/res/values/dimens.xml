@@ -3,8 +3,8 @@
     <dimen name="dim_page_item_horizontal_margin">12dip</dimen>
     <dimen name="dim_page_item_vertical_margin">15dip</dimen>
 
-    <dimen name="dim_page_item_image_horizontal_margin">45dip</dimen>
-    <dimen name="dim_page_item_image_vertical_margin">35dip</dimen>
+    <dimen name="dim_page_item_image_horizontal_margin">25dip</dimen>
+    <dimen name="dim_page_item_image_vertical_margin">25dip</dimen>
 
     <dimen name="dim_bottom_toolbar_margin">10dip</dimen>
     <dimen name="dim_bottom_toolbar_indicator_margin">10dip</dimen>
