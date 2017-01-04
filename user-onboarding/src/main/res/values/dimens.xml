@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="dim_page_item_horizontal_margin">12dip</dimen>
+    <dimen name="dim_page_item_horizontal_margin">8dip</dimen>
     <dimen name="dim_page_item_vertical_margin">15dip</dimen>
 
     <dimen name="dim_page_item_image_horizontal_margin">25dip</dimen>

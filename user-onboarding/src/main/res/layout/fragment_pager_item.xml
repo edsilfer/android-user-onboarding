@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,12 +20,13 @@
         android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_below="@+id/header"
+        android:layout_centerHorizontal="true"
         android:layout_marginEnd="@dimen/dim_page_item_image_horizontal_margin"
         android:layout_marginLeft="@dimen/dim_page_item_image_horizontal_margin"
         android:layout_marginRight="@dimen/dim_page_item_image_horizontal_margin"
         android:layout_marginStart="@dimen/dim_page_item_image_horizontal_margin"
-        android:layout_marginTop="-30dip"
+        android:layout_marginTop="10dip"
         android:adjustViewBounds="true"
         android:contentDescription="@string/str_page_item_image_description"
         android:scaleType="fitCenter" />
@@ -33,25 +34,26 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="15dip"
+        android:layout_below="@+id/image"
         android:layout_marginEnd="@dimen/dim_page_item_horizontal_margin"
         android:layout_marginLeft="@dimen/dim_page_item_horizontal_margin"
         android:layout_marginRight="@dimen/dim_page_item_horizontal_margin"
         android:layout_marginStart="@dimen/dim_page_item_horizontal_margin"
+        android:layout_marginTop="5dip"
         android:gravity="center"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/subheader1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/subheader2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dip"
-            android:gravity="center" />
+            android:layout_marginTop="3dip"
+            android:textAlignment="center" />
     </LinearLayout>
-</FrameLayout>
+</RelativeLayout>

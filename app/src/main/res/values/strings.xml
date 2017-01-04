@@ -17,4 +17,25 @@
     <string name="str_header_04">Page 04</string>
     <string name="str_subheader1_04">Subheader of Page 04</string>
     <string name="str_subheader2_04">This is the subheader 2 of Page 04</string>
+
+    <!-- USER ONBOARDING ACTIVITY -->
+    <string name="str_act_user_onboarding_header_page_01">GAMES</string>
+    <string name="str_act_user_onboarding_subheader1_page_01">Be a full player!</string>
+    <string name="str_act_user_onboarding_subheader2_page_01">Add games, show your skills, build your profile</string>
+
+    <string name="str_act_user_onboarding_header_page_02">TALK</string>
+    <string name="str_act_user_onboarding_subheader1_page_02">Ready to make new friendships?</string>
+    <string name="str_act_user_onboarding_subheader2_page_02">Search for players and be in contact to schedule your matches!</string>
+
+    <string name="str_act_user_onboarding_header_page_03">PROFILE</string>
+    <string name="str_act_user_onboarding_subheader1_page_03">Games, picture, skills and more!</string>
+    <string name="str_act_user_onboarding_subheader2_page_03">Brush up our profile and show the world the awesome gamer you are!</string>
+
+    <string name="str_act_user_onboarding_header_page_04">SEARCH</string>
+    <string name="str_act_user_onboarding_subheader1_page_04">Find and get found!</string>
+    <string name="str_act_user_onboarding_subheader2_page_04">By keeping an updated profile you make it wasier for other player to find you</string>
+
+    <string name="str_act_user_onboarding_header_page_05">Group chats</string>
+    <string name="str_act_user_onboarding_subheader1_page_05">The place to meet your guild!</string>
+    <string name="str_act_user_onboarding_subheader2_page_05">Create new group and gather al you team mates together!</string>
 </resources>
