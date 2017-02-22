@@ -1,5 +1,6 @@
 package br.com.edsilfer.android.user_onboarding.model
 
+import br.com.edsilfer.android.user_onboarding.R
 import br.com.edsilfer.kotlin_support.model.xml.Text
 import java.io.Serializable
 
@@ -15,7 +16,9 @@ data class Page(
         var subHeader1: Int,
         var subHeader1Style: Text,
         var subHeader2: Int,
-        var subHeader2Style: Text
+        var subHeader2Style: Text,
+        // You can set your custom layout here. Otherwise, the default layout will be used.
+        var contentLayoutResource: Int = R.layout.fragment_pager_item
 ) : Serializable {
 
 }

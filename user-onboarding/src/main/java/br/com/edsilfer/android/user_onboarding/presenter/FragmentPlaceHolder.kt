@@ -30,8 +30,8 @@ class FragmentPlaceHolder : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = inflater!!.inflate(R.layout.fragment_pager_item, container, false)
         val page = arguments.getSerializable(ARG_PAGE) as Page
+        val rootView = inflater!!.inflate(page.contentLayoutResource, container, false)
 
         val header = rootView.findViewById(R.id.header) as TextView
         val image = rootView.findViewById(R.id.image) as ImageView
