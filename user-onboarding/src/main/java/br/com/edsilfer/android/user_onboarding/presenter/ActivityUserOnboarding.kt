@@ -39,7 +39,11 @@ class ActivityUserOnBoarding : AppCompatActivity(), OnBoardingBottomPanel.PanelE
     private fun instantiateMembers() {
         retrievePages()
         mViewPager = findViewById(R.id.pager) as ViewPager
-        mPanelControl = OnBoardingBottomPanel(this, mTheme!!.pages.size, colorResource = mTheme!!.panelColor)
+        if (mTheme!!.bottomPanelColors != null) {
+            mPanelControl = OnBoardingBottomPanel(this, mTheme!!.pages.size, mTheme!!.bottomPanelColors!!)
+        } else {
+            mPanelControl = OnBoardingBottomPanel(this, mTheme!!.pages.size, colorResource = mTheme!!.panelColor)
+        }
         mPanelControl!!.setListener(this)
         (findViewById(R.id.divider)).setBackgroundColor(resources.getColor(mTheme!!.panelColor))
         (findViewById(R.id.container) as RelativeLayout).addView(mPanelControl as ViewGroup)

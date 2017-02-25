@@ -1,6 +1,8 @@
 package br.com.tyllt.view
 
+import android.graphics.Color
 import br.com.edsilfer.android.demo.R
+import br.com.edsilfer.android.user_onboarding.model.BottomPanelColors
 import br.com.edsilfer.android.user_onboarding.model.OnBoardingTheme
 import br.com.edsilfer.android.user_onboarding.model.Page
 import br.com.edsilfer.kotlin_support.model.xml.Text
@@ -22,6 +24,7 @@ object UserOnBoardingConfiguration {
         val theme = OnBoardingTheme()
         theme.pages = pages
         theme.panelColor = android.R.color.white
+        theme.bottomPanelColors = getBottomPanelColors()
 
         return theme
     }
@@ -121,5 +124,15 @@ object UserOnBoardingConfiguration {
         headerStyle.size = 18f
         headerStyle.style = "italic"
         return headerStyle
+    }
+
+    private fun getBottomPanelColors(): BottomPanelColors {
+        val colors = BottomPanelColors()
+        colors.finishColor = Color.parseColor("#555555")
+        colors.nextColor = Color.parseColor("#FFFFFF")
+        colors.indicatorActiveColor = Color.parseColor("#555555")
+        colors.indicatorInactiveColor = Color.parseColor("#FFFFFF")
+        colors.skipColor = Color.parseColor("#FFFFFF")
+        return colors
     }
 }
