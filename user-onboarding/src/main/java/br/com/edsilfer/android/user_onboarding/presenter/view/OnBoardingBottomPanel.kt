@@ -2,19 +2,15 @@ package br.com.edsilfer.android.user_onboarding.presenter.view
 
 import android.annotation.TargetApi
 import android.content.Context
-import android.graphics.Color
-import android.graphics.PorterDuff
-import android.graphics.drawable.Drawable
 import android.support.v4.content.ContextCompat
-import android.support.v4.graphics.drawable.DrawableCompat
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import br.com.edsilfer.android.user_onboarding.R
+import br.com.edsilfer.android.user_onboarding.model.BottomPanelColors
 import br.com.edsilfer.kotlin_support.extensions.paintDrawable
 import org.jetbrains.anko.textColor
-
 
 /**
  * Created by efernandes on 28/12/16.
@@ -33,18 +29,21 @@ class OnBoardingBottomPanel : RelativeLayout, OnBoardingControlPanel {
     private var mIndicators = arrayListOf<ImageView>()
 
     private var mSize: Int = 0
-    private var mResColor: Int = 0
+
+    private var mIndicatorActiveColor: Int = -1
+    private var mIndicatorInactiveColor: Int = -1
+    private var mSkipColor: Int = -1
+    private var mNextColor: Int = -1
+    private var mFinishColor: Int = -1
 
     // CONSTRUCTORS ================================================================================
-    constructor(context: Context, size: Int, colorResource: Int = -1, colorString: String = "") : super(context) {
+    constructor(context: Context, size: Int, bottomPanelColors: BottomPanelColors) : super(context) {
         mSize = size
-        if (colorString.isEmpty() && colorResource != -1) {
-            mResColor = context.resources.getColor(colorResource)
-        } else if (colorResource == -1 && !colorString.isEmpty()) {
-            mResColor = Color.parseColor(colorString)
-        } else {
-            mResColor = android.R.color.white
-        }
+        mIndicatorActiveColor = bottomPanelColors.indicatorActiveColor
+        mIndicatorInactiveColor = bottomPanelColors.indicatorInactiveColor
+        mSkipColor = bottomPanelColors.skipColor
+        mNextColor = bottomPanelColors.nextColor
+        mFinishColor = bottomPanelColors.finishColor
         init()
     }
 
@@ -68,9 +67,9 @@ class OnBoardingBottomPanel : RelativeLayout, OnBoardingControlPanel {
         mNext = rootView.findViewById(R.id.next) as ImageButton
         mSkip = rootView.findViewById(R.id.skip) as Button
 
-        mFinish!!.textColor = mResColor
-        mSkip!!.textColor = mResColor
-        mNext!!.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_chevron_right).paintDrawable(mResColor))
+        mFinish!!.textColor = mFinishColor
+        mSkip!!.textColor = mSkipColor
+        mNext!!.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_chevron_right).paintDrawable(mNextColor))
 
         val params = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
         params.addRule(ALIGN_PARENT_BOTTOM)
@@ -103,9 +102,9 @@ class OnBoardingBottomPanel : RelativeLayout, OnBoardingControlPanel {
         for ((count, i) in mIndicators.withIndex()) {
             i.setImageDrawable(
                     if (count == position) {
-                        ContextCompat.getDrawable(context, R.drawable.rsc_indicator_activated).paintDrawable(mResColor)
+                        ContextCompat.getDrawable(context, R.drawable.rsc_indicator_activated).paintDrawable(mIndicatorActiveColor)
                     } else {
-                        ContextCompat.getDrawable(context, R.drawable.rsc_indicator_deactivated).paintDrawable(mResColor)
+                        ContextCompat.getDrawable(context, R.drawable.rsc_indicator_deactivated).paintDrawable(mIndicatorInactiveColor)
                     }
             )
         }

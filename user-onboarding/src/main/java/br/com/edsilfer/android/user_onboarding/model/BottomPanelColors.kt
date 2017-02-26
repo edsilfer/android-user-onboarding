@@ -13,5 +13,6 @@ class BottomPanelColors(
         var indicatorInactiveColor: Int = -1,
         var skipColor: Int = -1,
         var nextColor: Int = -1,
-        var finishColor: Int = -1
+        var finishColor: Int = -1,
+        var dividerColor: Int = -1
 ) : Serializable {}

@@ -8,7 +8,7 @@ import br.com.edsilfer.android.user_onboarding.model.Page
 import br.com.edsilfer.kotlin_support.model.xml.Text
 
 /**
- * Created by User on 30/12/2016.
+ * Created by efernandes on 30/12/2016.
  */
 
 object UserOnBoardingConfiguration {
@@ -23,7 +23,6 @@ object UserOnBoardingConfiguration {
 
         val theme = OnBoardingTheme()
         theme.pages = pages
-        theme.panelColor = android.R.color.white
         theme.bottomPanelColors = getBottomPanelColors()
 
         return theme
@@ -128,9 +127,9 @@ object UserOnBoardingConfiguration {
 
     private fun getBottomPanelColors(): BottomPanelColors {
         val colors = BottomPanelColors()
-        colors.finishColor = Color.parseColor("#555555")
+        colors.finishColor = Color.parseColor("#FFFFFF")
         colors.nextColor = Color.parseColor("#FFFFFF")
-        colors.indicatorActiveColor = Color.parseColor("#555555")
+        colors.indicatorActiveColor = Color.parseColor("#FFFFFF")
         colors.indicatorInactiveColor = Color.parseColor("#FFFFFF")
         colors.skipColor = Color.parseColor("#FFFFFF")
         return colors

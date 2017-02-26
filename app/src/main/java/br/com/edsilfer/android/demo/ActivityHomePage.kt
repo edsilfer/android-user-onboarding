@@ -1,8 +1,10 @@
 package br.com.edsilfer.android.demo
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import br.com.edsilfer.android.user_onboarding.model.BottomPanelColors
 import br.com.edsilfer.android.user_onboarding.model.OnBoardingTheme
 import br.com.edsilfer.android.user_onboarding.model.Page
 import br.com.edsilfer.android.user_onboarding.presenter.ActivityUserOnBoarding
@@ -25,7 +27,7 @@ class ActivityHomePage : AppCompatActivity() {
 
         val theme = OnBoardingTheme()
         theme.pages = pages
-        theme.panelColor = android.R.color.white
+        theme.bottomPanelColors = getBottomPanelColors()
 
         val intent = Intent(this, ActivityUserOnBoarding::class.java)
         intent.putExtra(ActivityUserOnBoarding.ARG_ONBOARDING_THEME, UserOnBoardingConfiguration.getConfiguration())
@@ -115,5 +117,15 @@ class ActivityHomePage : AppCompatActivity() {
         headerStyle.size = 15f
         headerStyle.style = "italic"
         return headerStyle
+    }
+
+    private fun getBottomPanelColors(): BottomPanelColors {
+        val colors = BottomPanelColors()
+        colors.finishColor = Color.parseColor("#FFFFFF")
+        colors.nextColor = Color.parseColor("#FFFFFF")
+        colors.indicatorActiveColor = Color.parseColor("#FFFFFF")
+        colors.indicatorInactiveColor = Color.parseColor("#FFFFFF")
+        colors.skipColor = Color.parseColor("#FFFFFF")
+        return colors
     }
 }
