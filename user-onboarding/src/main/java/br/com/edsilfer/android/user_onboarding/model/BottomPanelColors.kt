@@ -1,18 +1,17 @@
 package br.com.edsilfer.android.user_onboarding.model
 
+import android.graphics.Color
 import java.io.Serializable
 
 /**
- * Colors for onboarding bottom panel
- *
- * @author Josef Hruška (josef@stepuplabs.io)
+ * Created by Josef Hruška (josef@stepuplabs.io) on 26/2/2017.
  */
 
 class BottomPanelColors(
-        var indicatorActiveColor: Int = -1,
-        var indicatorInactiveColor: Int = -1,
-        var skipColor: Int = -1,
-        var nextColor: Int = -1,
-        var finishColor: Int = -1,
-        var dividerColor: Int = -1
+        var indicatorActiveColor: Int = Color.parseColor("#FFFFFF"),
+        var indicatorInactiveColor: Int = Color.parseColor("#FFFFFF"),
+        var skipColor: Int = Color.parseColor("#FFFFFF"),
+        var nextColor: Int = Color.parseColor("#FFFFFF"),
+        var finishColor: Int = Color.parseColor("#FFFFFF"),
+        var dividerColor: Int = Color.parseColor("#FFFFFF")
 ) : Serializable {}
