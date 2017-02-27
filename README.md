@@ -46,7 +46,7 @@ compile 'br.com.edsilfer.android:user-onboarding:1.0.0'
 
 ```kotlin
 class OnBoardingTheme : Serializable {
-    var panelColor: Int = -1
+    var bottomPanelColors = BottomPanelColors()
     var pages = listOf<Page>()
 }
 
@@ -58,13 +58,22 @@ data class Page(
         var subHeader1: Int,
         var subHeader1Style: Text,
         var subHeader2: Int,
-        var subHeader2Style: Text
-) : Serializable {
+        var subHeader2Style: Text,
+        var customLayoutResource: Int // Optional parameter. Do not forget to use same view ids if you set your own layout. 
+) : Serializable {}
 
-}
+class BottomPanelColors(
+        var indicatorActiveColor: Int = Color.parseColor("#FFFFFF"),
+        var indicatorInactiveColor: Int = Color.parseColor("#FFFFFF"),
+        var skipColor: Int = Color.parseColor("#FFFFFF"),
+        var nextColor: Int = Color.parseColor("#FFFFFF"),
+        var finishColor: Int = Color.parseColor("#FFFFFF"),
+        var dividerColor: Int = Color.parseColor("#FFFFFF")
+) : Serializable {}
 ```
 
-*Each page added on pages represents a Page to be place as part of the ViewPager*
+*Each page added on pages represents a Page to be place as part of the ViewPager*<br />
+*You can use different colors for bottom panel via BottomPanelColor class*<br />
 
 <a name="step3" />
 #### Step 03: Launch ActivityUserOnBoarding:
@@ -78,12 +87,15 @@ pages.add(getPage4())
 
 val theme = OnBoardingTheme()
 theme.pages = pages
-theme.panelColor = android.R.color.white
+theme.panelColor = getBottomPanelColors()
 
 val intent = Intent(this, ActivityUserOnBoarding::class.java)
 intent.putExtra(ActivityUserOnBoarding.ARG_ONBOARDING_THEME, theme)
 startActivity(intent)
 ```
+
+<a name="step4" />
+#### Step 04: Check sample app for more details!
 
 <a name="special-thanks" />
 ## Special Thanks
