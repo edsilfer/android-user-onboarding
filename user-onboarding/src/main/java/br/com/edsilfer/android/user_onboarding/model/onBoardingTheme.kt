@@ -6,6 +6,6 @@ import java.io.Serializable
  * Created by efernandes on 29/12/16.
  */
 class OnBoardingTheme : Serializable {
-    var panelColor: Int = -1
     var pages = listOf<Page>()
+    var bottomPanelColors: BottomPanelColors = BottomPanelColors()
 }
