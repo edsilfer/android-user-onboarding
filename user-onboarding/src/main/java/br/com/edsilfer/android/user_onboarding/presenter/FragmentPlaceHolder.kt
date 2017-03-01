@@ -1,5 +1,6 @@
 package br.com.edsilfer.android.user_onboarding.presenter
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -27,6 +28,15 @@ class FragmentPlaceHolder : Fragment() {
             fragment.arguments = args
             return fragment
         }
+    }
+
+    // This is necessary to change layout to portrait/landscape mode. OnCreateView is not called after rotation.
+    override fun onConfigurationChanged(newConfig: Configuration?) {
+        super.onConfigurationChanged(newConfig)
+        val viewGroup = view as ViewGroup?
+        viewGroup!!.removeAllViewsInLayout()
+        val view = onCreateView(activity.layoutInflater, viewGroup, null)
+        viewGroup.addView(view)
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
