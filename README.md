@@ -99,7 +99,8 @@ startActivity(intent)
 
 <a name="special-thanks" />
 ## Special Thanks
-This library was built based on [this](http://blog.grafixartist.com/onboarding-android-viewpager-google-way/) nice tutorial posted by Suleiman on Grafix Artist.
+ - This library was built based on [this](http://blog.grafixartist.com/onboarding-android-viewpager-google-way/) nice tutorial posted by Suleiman on Grafix Artist.
+ - User [Josef H Ruska](https://github.com/JosefHruska) for improving the versatility of the lib;
 
 <a name="license" />
 ## License
