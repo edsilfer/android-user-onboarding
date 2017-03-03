@@ -6,7 +6,7 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 group = 'br.com.edsilfer.android'
-version = '1.0.3'
+version = '1.0.4'
 // *************************************************************************************************
 android {
     compileSdkVersion 25
