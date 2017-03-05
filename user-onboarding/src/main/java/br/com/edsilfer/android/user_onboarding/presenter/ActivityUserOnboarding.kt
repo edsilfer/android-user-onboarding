@@ -1,6 +1,7 @@
 package br.com.edsilfer.android.user_onboarding.presenter
 
 import android.animation.ArgbEvaluator
+import android.os.Build
 import android.os.Bundle
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
@@ -68,12 +69,13 @@ open class ActivityUserOnBoarding : AppCompatActivity(), OnBoardingBottomPanel.P
                                 resources.getColor(mTheme!!.pages[if (isLastPage(position)) position else position + 1].background)
                         ) as Int
                 )
-
-                this@ActivityUserOnBoarding.paintStatusBar(evaluator.evaluate(
-                        positionOffset,
-                        resources.getColor(mTheme!!.pages[position].background),
-                        resources.getColor(mTheme!!.pages[if (isLastPage(position)) position else position + 1].background)
-                ) as Int, false)
+                if (Build.VERSION.SDK_INT >= 21) {
+                    this@ActivityUserOnBoarding.paintStatusBar(evaluator.evaluate(
+                            positionOffset,
+                            resources.getColor(mTheme!!.pages[position].background),
+                            resources.getColor(mTheme!!.pages[if (isLastPage(position)) position else position + 1].background)
+                    ) as Int, false)
+                }
             }
 
             override fun onPageSelected(position: Int) {
