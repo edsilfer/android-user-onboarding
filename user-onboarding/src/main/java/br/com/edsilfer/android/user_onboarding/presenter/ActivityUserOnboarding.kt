@@ -19,7 +19,7 @@ import br.com.edsilfer.kotlin_support.extensions.putProperty
 /**
  * Created by efernandes on 28/12/16.
  */
-class ActivityUserOnBoarding : AppCompatActivity(), OnBoardingBottomPanel.PanelEventListener {
+open class ActivityUserOnBoarding : AppCompatActivity(), OnBoardingBottomPanel.PanelEventListener {
 
     companion object {
         val PREF_USER_FIRST_TIME = "PREF_USER_FIRST_TIME"
