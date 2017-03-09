@@ -25,7 +25,7 @@ object UserOnBoardingConfiguration {
         theme.pages = pages
         theme.bottomPanelColors = getBottomPanelColors()
         theme.bottomPanelLayoutResource = getBottomPanelLayoutResource()
-        
+
         return theme
     }
 
