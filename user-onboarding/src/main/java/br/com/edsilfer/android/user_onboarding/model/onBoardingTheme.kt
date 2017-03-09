@@ -1,5 +1,6 @@
 package br.com.edsilfer.android.user_onboarding.model
 
+import br.com.edsilfer.android.user_onboarding.R
 import java.io.Serializable
 
 /**
@@ -8,4 +9,5 @@ import java.io.Serializable
 class OnBoardingTheme : Serializable {
     var pages = listOf<Page>()
     var bottomPanelColors: BottomPanelColors = BottomPanelColors()
+    var bottomPanelLayoutResource: Int = R.layout.util_bottom_toolbar
 }

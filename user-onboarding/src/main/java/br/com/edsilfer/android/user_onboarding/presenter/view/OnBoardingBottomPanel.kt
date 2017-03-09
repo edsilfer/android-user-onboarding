@@ -30,6 +30,7 @@ class OnBoardingBottomPanel : RelativeLayout, OnBoardingControlPanel {
 
     private var mSize: Int = 0
 
+    private var mBottomLayoutResource: Int = -1
     private var mIndicatorActiveColor: Int = -1
     private var mIndicatorInactiveColor: Int = -1
     private var mSkipColor: Int = -1
@@ -37,8 +38,9 @@ class OnBoardingBottomPanel : RelativeLayout, OnBoardingControlPanel {
     private var mFinishColor: Int = -1
 
     // CONSTRUCTORS ================================================================================
-    constructor(context: Context, size: Int, bottomPanelColors: BottomPanelColors) : super(context) {
+    constructor(context: Context, size: Int, bottomPanelColors: BottomPanelColors, bottomLayoutResource: Int) : super(context) {
         mSize = size
+        mBottomLayoutResource = bottomLayoutResource
         mIndicatorActiveColor = bottomPanelColors.indicatorActiveColor
         mIndicatorInactiveColor = bottomPanelColors.indicatorInactiveColor
         mSkipColor = bottomPanelColors.skipColor
@@ -61,7 +63,7 @@ class OnBoardingBottomPanel : RelativeLayout, OnBoardingControlPanel {
     }
 
     fun init() {
-        val rootView = LayoutInflater.from(context).inflate(R.layout.util_bottom_toolbar, this, true)
+        val rootView = LayoutInflater.from(context).inflate(mBottomLayoutResource, this, true)
 
         mFinish = rootView.findViewById(R.id.finish) as Button
         mNext = rootView.findViewById(R.id.next) as ImageButton

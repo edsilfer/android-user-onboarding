@@ -24,7 +24,8 @@ object UserOnBoardingConfiguration {
         val theme = OnBoardingTheme()
         theme.pages = pages
         theme.bottomPanelColors = getBottomPanelColors()
-
+        theme.bottomPanelLayoutResource = getBottomPanelLayoutResource()
+        
         return theme
     }
 
@@ -133,5 +134,9 @@ object UserOnBoardingConfiguration {
         colors.indicatorInactiveColor = Color.parseColor("#FFFFFF")
         colors.skipColor = Color.parseColor("#FFFFFF")
         return colors
+    }
+
+    private fun getBottomPanelLayoutResource(): Int {
+        return R.layout.util_bottom_toolbar // You can set your custom bottom bar layout here.
     }
 }
