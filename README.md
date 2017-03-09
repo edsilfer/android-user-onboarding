@@ -88,6 +88,7 @@ pages.add(getPage4())
 val theme = OnBoardingTheme()
 theme.pages = pages
 theme.panelColor = getBottomPanelColors()
+theme.bottomPanelLayoutResource = R.layout.custom_bottom_panel // You can set your own layout for bottom panel 
 
 val intent = Intent(this, ActivityUserOnBoarding::class.java)
 intent.putExtra(ActivityUserOnBoarding.ARG_ONBOARDING_THEME, theme)
