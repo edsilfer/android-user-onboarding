@@ -1,6 +1,6 @@
 buildscript {
     // VARIABLE CONFIGURATIONS
-    ext.kotlin_version = '1.0.6'
+    ext.kotlin_version = '1.0.7'
     ext.support_version = '25.1.0'
 
     // REPOSITORIES DEFINITIONS
