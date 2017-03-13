@@ -10,6 +10,7 @@
     <Button
         android:id="@+id/skip"
         style="@style/Widget.AppCompat.Button.Borderless"
+        android:background="@drawable/ripple_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start|center"
@@ -26,6 +27,7 @@
     <Button
         android:id="@+id/finish"
         style="@style/Widget.AppCompat.Button.Borderless"
+        android:background="@drawable/ripple_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|center"
@@ -36,6 +38,7 @@
     <ImageButton
         android:id="@+id/next"
         style="@style/Widget.AppCompat.Button.Borderless"
+        android:background="@drawable/ripple_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|center"

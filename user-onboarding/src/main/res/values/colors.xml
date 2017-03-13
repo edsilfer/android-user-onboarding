@@ -5,4 +5,7 @@
     <color name="sampleColor3">#b32401</color>
     <color name="sampleColor4">#f1ba45</color>
     <color name="sampleColor5">#b38a16</color>
+
+    <color name="rippleColor">#d8d8d8</color>
+    <color name="transparentColor">#00FFFFFF</color>
 </resources>
