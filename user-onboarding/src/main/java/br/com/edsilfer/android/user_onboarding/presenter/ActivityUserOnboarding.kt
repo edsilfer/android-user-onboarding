@@ -3,6 +3,7 @@ package br.com.edsilfer.android.user_onboarding.presenter
 import android.animation.ArgbEvaluator
 import android.os.Build
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.view.ViewGroup
@@ -81,7 +82,7 @@ open class ActivityUserOnBoarding : AppCompatActivity(), OnBoardingBottomPanel.P
             override fun onPageSelected(position: Int) {
                 mCurrentPage = position
                 mPanelControl!!.updateBar(mCurrentPage)
-                mViewPager!!.setBackgroundColor(mTheme!!.pages[position].background)
+                mViewPager!!.setBackgroundColor(ContextCompat.getColor(baseContext, mTheme!!.pages[position].background))
             }
 
             override fun onPageScrollStateChanged(state: Int) {
